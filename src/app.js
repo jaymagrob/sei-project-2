@@ -6,12 +6,11 @@ import './stylesheets/main.scss'
 
 import Navbar from './components/common/Navbar'
 import Start from './components/Start'
-import Footer from './components/common/Footer'
 import Joke from './components/Joke'
 import Quote from './components/common/Quote'
 import Home from './components/common/Home'
 import Timer from './components/common/Timer'
-import Numbers from './components/common/Numbers'
+import Fact from './components/common/Fact'
 
 
 class App extends React.Component {
@@ -28,9 +27,8 @@ class App extends React.Component {
             <Route path="/quote" component={Quote} />
             <Route path="/joke" component={Joke} />
             <Route path="/timer" component={Timer} />
-            <Route path="/numbers" component={Numbers} />
+            <Route path="/fact" component={Fact} />
           </Switch>
-          {/* <Footer /> */}
         </main>
       </BrowserRouter>
     )

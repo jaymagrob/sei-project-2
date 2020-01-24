@@ -1,12 +1,12 @@
 import React from 'react'
 import axios from 'axios'
 
-class Quote extends React.Component {
-  state = { 
+class Fact extends React.Component {
+  state = {
     quote: ''
   }
 
-  async componentDidMount()  {
+  async componentDidMount() {
     try {
       const res = await axios.get('http://numbersapi.com/random/trivia/')
       this.setState({ quote: res.data })
@@ -19,11 +19,10 @@ class Quote extends React.Component {
     return (
       <section className="section">
         <div className="container">
-          <div className="columns is-mobile is-multiline">
-            <h1>Number Fun</h1>
+          <div className="is-mobile box">
+            <h1 className="title is-2 has-text-centered">Number Fact</h1>
             <div>
-              <h2><q>{this.state.quote}</q></h2>
-              
+              <h2 className="has-text-centered"><q>{this.state.quote}</q></h2>
             </div>
           </div>
         </div>
@@ -31,4 +30,4 @@ class Quote extends React.Component {
     )
   }
 }
-export default Quote
+export default Fact
