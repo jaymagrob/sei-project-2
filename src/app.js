@@ -11,14 +11,13 @@ import Quote from './components/common/Quote'
 import Home from './components/common/Home'
 import Timer from './components/common/Timer'
 import Fact from './components/common/Fact'
+import ErrorPage from './components/common/ErrorPage'
 
 
 class App extends React.Component {
   render() {
-    return (
-      
+    return ( 
       <BrowserRouter>
-
         <main>
           <Navbar />
           <Switch>
@@ -28,6 +27,7 @@ class App extends React.Component {
             <Route path="/joke" component={Joke} />
             <Route path="/timer" component={Timer} />
             <Route path="/fact" component={Fact} />
+            <Route path="/*" component={ErrorPage} />
           </Switch>
         </main>
       </BrowserRouter>

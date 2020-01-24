@@ -13,12 +13,10 @@ class Joke extends React.Component {
       const res = await axios.get('https://sv443.net/jokeapi/category/Programming?blacklistFlags=nsfw,religious,political')
       this.setState({ joke: res.data.joke, setup: res.data.setup, delivery: res.data.delivery })
     } catch (err) {
-      console.log(err)
+      this.props.history.push('/notfound')
     }
   }
   render() {
-    console.log('render')
-
     return (
       <section className="section">
         <div className="container">

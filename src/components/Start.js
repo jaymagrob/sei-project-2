@@ -2,6 +2,8 @@ import React from 'react'
 import axios from 'axios'
 import ResultPage from './ResultPage'
 
+// The quiz API data is encoded. We use window.btoa(element-to-decode-here) to decode it and display it as readable text
+
 class Start extends React.Component {
   
   state = {
@@ -20,6 +22,13 @@ class Start extends React.Component {
 
   }
 
+  // the difficulty choice is concatenated into the API url when we GET it
+  handleDifficulty = (e) => {
+    const difficulty = e.target.textContent.toLowerCase()
+    this.gameStart(difficulty)
+  }
+
+  // function is called when a difficulty is chosen
   gameStart = async (difficulty) => {
     try {
       const res = await axios.get(`https://opentdb.com/api.php?amount=10&encode=base64&category=18&difficulty=${difficulty}`)
@@ -33,7 +42,7 @@ class Start extends React.Component {
       this.setState({ results: res.data.results, questionObj, combinedAnswers, difficulty })
 
     } catch (err) {
-      console.log(err)
+      this.props.history.push('/notfound')
     }
   }
 
@@ -51,6 +60,7 @@ class Start extends React.Component {
     this.setState({ playerGuess, score, gamePlaying })
   }
 
+  // When the "next" button is clicked, the next quiz question will display
   handleNext = () => {
     let gamePlaying = this.state.gamePlaying
     if (this.state.questionNum === 4) gamePlaying = false
@@ -67,15 +77,11 @@ class Start extends React.Component {
     this.setState({ questionObj, combinedAnswers, playerGuess: '', questionNum: num, gamePlaying })
   }
 
-  handleDifficulty = (e) => {
-    const difficulty = e.target.textContent.toLowerCase()
-    console.log(difficulty)
-    this.gameStart(difficulty)
-  }
-
-
-
-
+  /* when difficuly has not been chosen, difficulty choice buttons will appear
+  when difficulty has been chosen, the gameStart function is called and the first question is displayed
+  when an answer is chosen, the result and the next button appear
+  when the next button is clicked, the result and next button disappear again and the next question is displayed
+  when the next button is clicked after the 5th question, the result page is shown */
   render() {
     console.log('STATE', this.state)
     return (
