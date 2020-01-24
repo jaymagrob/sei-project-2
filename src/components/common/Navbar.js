@@ -5,15 +5,18 @@ import { Link, withRouter } from 'react-router-dom'
 class Navbar extends React.Component {
   state = { navbarOpen: false }
   
+  // Used to open or close the navbar
   toggleNavbar = () => {
     this.setState({ navbarOpen: !this.state.navbarOpen })
   }
   
+  // Used to close the navbar when route changes
   componentDidUpdate(prevProps) {
     if (this.props.location.pathname !== prevProps.location.pathname) {
       this.setState({ navbarOpen: false })
     }
   }
+
   render() {
     const { navbarOpen } = this.state
     return (

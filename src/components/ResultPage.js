@@ -1,8 +1,9 @@
+// Component used at end of game to show score, joke and reset button.
 import React from 'react'
 import Joke from './Joke'
 import { Link } from 'react-router-dom'
 
-
+// score parameter passed from Start.js component
 const ResultPage = ({ score }) => (
   <>
     <div className="box level">

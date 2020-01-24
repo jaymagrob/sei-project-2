@@ -1,3 +1,4 @@
+// Used to test the quiz API and how many questions were availalbe. Not used in productuin.
 import React from 'react'
 import axios from 'axios'
 

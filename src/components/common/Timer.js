@@ -1,3 +1,4 @@
+//Timer used for testing countdown and has not been actioned yet.
 import React from 'react'
 
 class Timer extends React.Component {
