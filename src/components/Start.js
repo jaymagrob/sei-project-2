@@ -1,23 +1,31 @@
+// Component used for gameplay
+// The quiz API data is encoded in base64. We use window.btoa(element-to-decode-here) to decode it and display it as readable text
+
 import React from 'react'
 import axios from 'axios'
-import ResultPage from './ResultPage'
 
-// The quiz API data is encoded. We use window.btoa(element-to-decode-here) to decode it and display it as readable text
+import ResultPage from './ResultPage'
 
 class Start extends React.Component {
   
   state = {
+    // holds all results from the one API call. Never changes.
     results: '',
+    // counts how many questions have been answered. Also rendered to user, but always +1 so that it doesn't count from zero
     questionNum: 0,
+    // gets the current question using the results array and the questionNum as it's index
     questionObj: {
       question: '',
       correctAnswer: '',
       incorrectAnswers: ''
     },
+    // combining the correct and incorrect questions and randomising the order before displaying on the page
     combinedAnswers: '',
+    // was player right or wrong?
     playerGuess: '',
     score: 0,
     gamePlaying: true,
+    // this is used in the API all.
     difficulty: ''
 
   }
@@ -46,6 +54,7 @@ class Start extends React.Component {
     }
   }
 
+  // if player has already made a guess they can click the other options but nothing will happen
   handleGuess = e => {
     const gamePlaying = true
     if (this.state.playerGuess) return
@@ -91,7 +100,7 @@ class Start extends React.Component {
             <div className="columns">
               <div className="column is-half is-offset-one-quarter">
                 {!this.state.difficulty &&
-                  <div className="buttons is-centered">
+                  <div className="buttons is-centered box">
                     <button className="button has-text-weight-semibold is-medium is-fullwidth is-outlined is-success" onClick={this.handleDifficulty}>Easy</button>
                     <button className="button has-text-weight-semibold is-medium is-fullwidth is-outlined is-info" onClick={this.handleDifficulty}>Medium</button>
                     <button className="button has-text-weight-semibold is-medium is-fullwidth is-outlined is-danger" onClick={this.handleDifficulty}>Hard</button>

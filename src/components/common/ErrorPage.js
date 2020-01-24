@@ -1,3 +1,4 @@
+//Component used to show an error in the case that a component does not properly load
 import React from 'react'
 
 const ErrorPage = () => (
