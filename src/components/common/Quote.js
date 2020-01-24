@@ -21,12 +21,12 @@ class Quote extends React.Component {
     return (
       <section className="section">
         <div className="container">
-          <div className="columns is-mobile is-multiline">
-            <h1>Quote</h1>
+          <div className="is-mobile is-multiline box">
+            <h1 className="title is-2 has-text-centered">Nerdy Quote</h1>
             <div>
-              <h2><q>{this.state.quote}</q></h2>
-              <h3>{this.state.author}</h3>
-              <h3>{this.state.source}</h3>
+              <h2><blockquote>{this.state.quote}</blockquote></h2>
+              <h3>-{this.state.author}</h3>
+              <h4>{this.state.source}</h4>
             </div>
           </div>
         </div>
