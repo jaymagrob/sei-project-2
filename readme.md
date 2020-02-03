@@ -1,12 +1,18 @@
-# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Project #2: Reacathon
+![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png)
 
-## Overview
+# Software Engineering Immersive: Project 2
 
-The second project is to **build a React application** that consumes a **public API**.
+Second project undertaken during the General Assembly Software Engineering Immersive course (week 6).
 
-### Technical Requirements
+---
 
-Your app must:
+# //TODO Quiz
+
+This is a website built using a quiz API. The user can select difficulty and then will answer 5 questrions about computing. The project was a pair coding project and my partner was [Astara Cambata](https://github.com/astara303/) and the project was completed in 48 hours.
+
+## Brief
+
+Build a react app that:
 
 * **Consume a public API** – this could be anything but it must make sense for your project.
 * **Have several components** - At least one classical and one functional.
@@ -15,54 +21,124 @@ Your app must:
 * Have **semantically clean HTML** - you make sure you write HTML that makes structural sense rather than thinking about how it might look, which is the job of CSS.
 * **Be deployed online** and accessible to the public.
 
----
+## Deployment
 
-## Necessary Deliverables
+The app is deployed using Heroku and can be found [here](https://jmr-sei-project-2.herokuapp.com/).
 
-* A **working application**, hosted somewhere on the internet
-* A **link to your hosted working app** in the URL section of your Github repo
-* A **git repository hosted on Github**, with a link to your hosted project, and frequent commits dating back to the _very beginning_ of the project
+## Getting Started
 
----
+Use the clone button to download the game source code. In the terminal enter the following commands:
 
-## Suggested Ways to Get Started
+```
+<!-- To install all the packages listed in the package.json: -->
+$ npm i
+<!-- Run the app in your localhost: -->
+$ npm run serve
+<!-- Check the console for any issues and if there are check the package.json for any dependancies missing  -->
+```
 
-* **Don’t hesitate to write throwaway code** to solve short term problems.
-* **Read the docs for whatever technologies / frameworks / APIs you use**.
-* **Write DRY code**.
-* **Be consistent with your code style.**
-* **Commit early, commit often.** Don’t be afraid to break something because you can always go back in time to a previous version.
-* **Keep user stories small and well-defined**, and remember – user stories focus on what a user needs, not what development tasks need accomplishing.
-* **Write code another developer wouldn't have to ask you about**. Do your naming conventions make sense? Would another developer be able to look at your app and understand what everything is?
-* **Make it all well-formatted.** Are you indenting, consistently? Can we find the start and end of every div, curly brace, etc?
-* **Comment your code.** Will someone understand what is going on in each block or function? Even if it's obvious, explaining the what & why means someone else can pick it up and get it.
-* **Write pseudocode before you write actual code.** Thinking through the logic of something helps.
+## Technology Use
 
----
+* Coding Technology
+  * React
+  * Node.js
+  * Express
+  * Axios
+  * Bulma
+  * SCSS
+  * Git
+  * GitHub
+* API Technology
+  * Open Trivia Database API - [documentation](https://opentdb.com/api_config.php)
+  * Number Face API - [documentation](http://numbersapi.com/#url-structure)
+  * Programming Quote API - [documentation](https://programming-quotes-api.herokuapp.com/)
+  * Joke API - [documentation](https://sv443.net/jokeapi)
 
-## Useful Resources
+## Timeframe
 
-* [List of open APIs](https://any-api.com/)
+Coding was done over 2 days. Deadline for the project was 3pm on the 24th of January 2020.
 
-* [A collective list of free APIs for use in software and web development.](https://github.com/public-apis/public-apis)
+## Project Overview
 
-* [18 Fun APIs For Your Next Project - Victoria Bergquist - Medium](https://medium.com/@vicbergquist/18-fun-apis-for-your-next-project-8008841c7be9)
+### Open Trivia DB API
 
-* [Best Free APIs of 2019](https://rapidapi.com/collection/best-free-apis?utm_source=google&utm_medium=cpc&utm_campaign=1757574668_67679208454&utm_term=%2Bfree%20%2Bapis_b&utm_content=1t1&gclid=CjwKCAiAgqDxBRBTEiwA59eENwNUVqPD-v79Cgwl3EWtcRuMZlVGOCxAf5RcH74ZUM6cMKp6o5FZRxoCpVgQAvD_BwE)
+Due to the limited time frame to complete the project, we wanted to find an API that didn't need tokens or authentication that would need approval. Open Trivia DB allows you to get quiz questions based on a category, difficulty and question type through the URL.
 
+### Homepage
 
-These are just a few examples of lists of free APIs you could use, there are hundreds out there!
+The homepage was a simple function compondant with a bulma hero background image. We wanted to keep the homepage routed to / and simple so that we could build more than just the quiz into the app. If we started on the quiz page that was all the app would be but starting on the homepage means we were able to easily add in three other seperate API compondents without messing up the gameplay.
 
----
+### Game Play
 
-## Project Feedback + Evaluation
+The game play component is split into three section depending if certain values are truthy or falsey in the state. 
 
-* __Project Workflow__: Did you complete the user stories, wireframes, task tracking as specified above? Did you use source control as expected for the phase of the program you’re in (detailed above)?
+The first section is the difficulty section. When a user pressed on of the buttons the state.difficulty is changed. When the component rerenders, this section will disappear due to ```!this.state.difficulty``` now being false
 
-* __Technical Requirements__: Did you deliver a project that met all the technical requirements? Given what the class has covered so far, did you build something that was reasonably complex?
+![Difficulty menu screenshot](src/assets/sc_difficulty.png)
 
-* __Creativity__: Did you added a personal spin or creative element into your project submission? Did you deliver something of value to the end user (not just a login button and an index page)?
+The second section is the gameplay. This section appears difficulty is now a truthy value ```this.state.gamePlaying && this.state.difficulty```
+The questions have already been pulled from the api when the Start.js mounted and they have been randomised. This section will loop through the array until the user gets to question 5.
 
-* __Code Quality__: Did you follow code style guidance and best practices covered in class, such as spacing, modularity, and semantic naming? Did you comment your code as your instructors as we have in class?
+![Quiz game play screenshot](src/assets/sc_gameplay.png)
 
-* __Problem Solving__: Are you able to defend why you implemented your solution in a certain way? Can you demonstrated that you thought through alternative implementations? _(Note that this part of your feedback evaluation will take place during your one-on-one code review with your instructors, after you've completed the project.)_# sei-project-2
+Once question 5 has been answered, this.state.gamePlaying is changed to false. That activates the ResultPage component which pushing the prop of score from state.
+```js
+!this.state.gamePlaying && <ResultPage score={this.state.score}
+```
+The results page shows the score, gets a joke as a reward from the Joke compondent and has a reset button that links the used back to / from /quiz.
+
+![Quiz results page screenshot](src/assets/sc_results.png)
+
+### Secondary APIs
+
+#### Numbers API
+
+The number API is a url api that has many used but we used the http://numbersapi.com/random/trivia/ url to a get one fact about numbers that would refresh every render.
+
+The data was returned as a txt file with the whole txt response being set in state.
+
+#### Programming Quote API
+
+The programming quote api is a url api gets a get request and sends an object with quote, author and source. Call are made to https://programming-quotes-api.herokuapp.com/quotes/random/lang/en. There was three states within our object for each of the three keys that were sent.
+
+#### Computer Joke API
+
+The computer joke API had is a URL based API that either gives you a one key object of joke or a two key object of setup and delivery. Instead to changing the state based on whether we were sent a one to two line joke, state started with all three keys but only show each if it was a truthy value. 
+
+One issue with this api was the content of some of the jokes. To counter this there was a ?blacklistFlags=nsfw,religious,political parameter that was added to remove religious, political and not safe for work content.
+
+## Reflection
+
+### Wins
+
+The MVP app that was created in two days was finished with a working quiz and 3 other API intergations.
+Using Bulma has meant the app looks professional with minimal hardcoded CSS.
+
+### Challenges
+
+The OpenTDB Api sends requests via a urlencoded string. This meant that special characters were changed and made the game unreadable. The first option with trying to fix this was to write a large regex replace function. On further review this did not seem like the best option as human error in writing the regex could break the string.
+The option was ended up with was requesting the API calls in base64. When we displayed any value, we would convert the base64 to readable tewxt using the method atob()
+
+```js
+//Displaying the question
+window.atob(this.state.questionObj.question)
+
+//Displaying the answers
+window.atob(answer)
+
+//Showing the correct answer
+window.atob(this.state.questionObj.correctAnswer)
+```
+
+As we were using the e.target.value to check which button the user has click, we have to use btoa() when comparing if the answer was correct.
+```js
+if (window.btoa(e.target.textContent) === this.state.questionObj.correctAnswer) {
+```
+
+### Future Improvements
+
+Currently the game is only pulling from one category in the OpenTDB API limiting the amount of questions that can be asked. Future version should have either a selection of categories or a more diverse question range.
+
+Adding a time limit on each question would add to the gameplay.
+
+Adding a highscore that is saved on locate storage.
