@@ -1,9 +1,12 @@
 const express = require('express')
+const mongoose = require('mongoose')
 const app = express()
-const port = process.env.PORT || 4000
+const { port, dbURI } = require('./config/environment')
 
-app.use(express.static(`${__dirname}/dist`))
+mongoose.connect(dbURI)
 
-app.get('/*', (req, res) => res.sendFile(`${__dirname}/dist/index.js`))
+// app.use(express.static(`${__dirname}/dist`))
+
+// app.get('/*', (req, res) => res.sendFile(`${__dirname}/dist/index.js`))
 
 app.listen(port, () => console.log(`app is listening on port ${port}`))

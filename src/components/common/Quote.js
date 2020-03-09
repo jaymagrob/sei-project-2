@@ -20,14 +20,13 @@ class Quote extends React.Component {
   }
   
   render() {
-    console.log('render')
     return (
       <section className="section">
         <div className="container">
           <div className="is-mobile is-multiline box">
             <h1 className="title is-2 has-text-centered">Nerdy Quote</h1>
             <div>
-              <h2 className="title is-5 has-text-weight-light">"{this.state.quote}"</h2>
+              <h2 className="title is-5 has-text-weight-light">&quot;{this.state.quote}&quot;</h2>
               <h3 className="title is-4 has-text-weight-light">-{this.state.author}</h3>
               <h4 className="title is-6 has-text-weight-light">{this.state.source}</h4>
             </div>

@@ -19,7 +19,6 @@ class Fact extends React.Component {
   }
 
   render() {
-    console.log('render')
     return (
       <section className="section">
         <div className="container">

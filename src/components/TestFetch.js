@@ -14,7 +14,6 @@ class TestFetch extends React.Component {
         console.log(JSON.parse(obj))
       }
     }
-    console.log(obj)
   }
   
   

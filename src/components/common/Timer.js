@@ -16,7 +16,6 @@ class Timer extends React.Component {
   }
 
   timerFun = () => {
-    console.log('run')
     if (this.state.timer <= 10) {
       clearInterval(this.timer())
       this.setState({ timerRunning: false })  

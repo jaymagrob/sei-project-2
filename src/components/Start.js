@@ -92,7 +92,6 @@ class Start extends React.Component {
   when the next button is clicked, the result and next button disappear again and the next question is displayed
   when the next button is clicked after the 5th question, the result page is shown */
   render() {
-    console.log('STATE', this.state)
     return (
       <>
         <section className="section">
