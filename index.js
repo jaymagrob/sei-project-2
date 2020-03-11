@@ -7,7 +7,8 @@ const { port, dbURI } = require('./config/environment')
 app.use(express.static(`${__dirname}/dist`))
 
 
-app.get('/*', (req, res) => res.sendFile(`${__dirname}/dist/index.js`))
+app.use('/*', (req, res) => res.sendFile(`${__dirname}/dist/index.html`))
+
 
 mongoose.connect(dbURI)
 
