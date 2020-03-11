@@ -14,7 +14,7 @@ class Fact extends React.Component {
       const res = await axios.get('http://numbersapi.com/random/trivia/')
       this.setState({ quote: res.data })
     } catch (err) {
-      this.props.history.push('/notfound')
+      console.log(err)
     }
   }
 
