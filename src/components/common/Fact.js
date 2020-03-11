@@ -11,7 +11,7 @@ class Fact extends React.Component {
   //text based API. Can change the API call by changing /random and /trivia. Documentation can be found: http://numbersapi.com/#url-structure
   async componentDidMount() {
     try {
-      const res = await axios.get('numbersapi.com/random/trivia/')
+      const res = await axios.get('http://numbersapi.com/random/trivia/')
       this.setState({ quote: res.data })
     } catch (err) {
       console.log(err)
