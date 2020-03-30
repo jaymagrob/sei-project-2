@@ -99,7 +99,7 @@ The data was returned as a txt file with the whole txt response being set in the
 
 #### Programming Quote API
 
-The programming quote api is a url api gets a get request and sends an object with quote, author and source. Call are made to https://programming-quotes-api.herokuapp.com/quotes/random/lang/en. There was three states within our object for each of the three keys that were sent.
+The programming quote API is a URL API gets a get request and sends an object with a quote, author and source. A call is made to https://programming-quotes-api.herokuapp.com/quotes/random/lang/en. There were three states within our object for each of the three keys that were sent.
 
 #### Computer Joke API
 
